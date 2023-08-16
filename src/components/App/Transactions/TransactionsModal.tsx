@@ -37,7 +37,7 @@ const TransactionsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> =
   }, [dispatch])
 
   return (
-    <Modal title={t('Recent Transactions')} headerBackground="gradientCardHeader" onDismiss={onDismiss}>
+    <Modal title={t('Recent Transactions')} headerBackground="gradientModalHeader" onDismiss={onDismiss}>
       {account ? (
         <ModalBody>
           {hasTransactions ? (

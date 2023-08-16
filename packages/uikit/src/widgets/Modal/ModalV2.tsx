@@ -15,7 +15,8 @@ const ModalWrapper = styled(m.div)`
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: ${({ theme }) => theme.zIndices.modal - 1};
+  // z-index: ${({ theme }) => theme.zIndices.modal - 1};
+  z-index: 9999 !important;
 `;
 
 export function ModalV2({

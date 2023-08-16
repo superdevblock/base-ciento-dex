@@ -177,7 +177,7 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
               width: isMobile ? "0px" : isMd ? "170px" : "266px",
               borderRight: "2px solid  rgba(172, 176, 192, 0.30)",
               marginTop: `-${MENU_HEIGHT + 16}px`,
-              zIndex: 999,
+              zIndex: 99,
               padding: "49px 0px",
               gap: "50px",
               background: isDark ? "#000" : "#F9FAFE",

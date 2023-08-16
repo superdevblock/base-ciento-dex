@@ -8,6 +8,7 @@ interface Props extends BoxProps {
 }
 
 const QuestionWrapper = styled.div`
+  z-index: 2000;
   :hover,
   :focus {
     opacity: 0.7;
@@ -18,6 +19,7 @@ const QuestionHelper: React.FC<React.PropsWithChildren<Props>> = ({
   text,
   placement = 'right-end',
   size = '16px',
+  zIndex = '20000',
   ...props
 }) => {
   const { targetRef, tooltip, tooltipVisible } = useTooltip(text, { placement })
