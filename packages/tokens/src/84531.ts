@@ -1,4 +1,4 @@
-import { ChainId, Token, WBNB } from '@pancakeswap/sdk'
+import { ChainId, Token, WBNB, BASE } from '@pancakeswap/sdk'
 import { BUSD_TESTNET, CAKE_TESTNET } from './common'
 
 export const baseTestnetTokens = {

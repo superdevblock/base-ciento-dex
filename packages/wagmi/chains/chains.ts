@@ -106,7 +106,7 @@ export const baseTest: Chain = {
     public: { http: ['https://data-seed-prebsc-1-s2.binance.org:8545/'] },
   },
   blockExplorers: {
-    default: { name: 'BaseScan', url: 'https://1rpc.io/base-goerli	' },
+    default: { name: 'BaseScan', url: 'https://goerli.basescan.org/' },
   },
   contracts: {
     multicall3: {
