@@ -175,7 +175,8 @@ export default function RemoveLiquidity() {
       { name: 'verifyingContract', type: 'address' },
     ]
     const domain = {
-      name: 'Pancake LPs',
+      // name: 'Pancake LPs',
+      name: 'Ciento LP',
       version: '1',
       chainId,
       verifyingContract: pair.liquidityToken.address,
@@ -419,6 +420,7 @@ export default function RemoveLiquidity() {
     }
 
     let methodSafeGasEstimate: { methodName: string; safeGasEstimate: BigNumber }
+
     console.log('arsinoe 0')
     for (let i = 0; i < methodNames.length; i++) {
       let safeGasEstimate
@@ -447,8 +449,8 @@ export default function RemoveLiquidity() {
     console.log('arsinoe 23 ', methodSafeGasEstimate)
     // all estimations failed...
     if (!methodSafeGasEstimate) {
-      console.log('arsinoe 3')
       toastError(t('Error'), t('This transaction would fail'))
+      console.log('arsinoe 3')
     } else {
       console.log('arsinoe 4')
       const { methodName, safeGasEstimate } = methodSafeGasEstimate

@@ -224,7 +224,7 @@
       "address": "0x4200000000000000000000000000000000000006",
       "chainId": 84531,
       "decimals": 18,
-      "logoURI": "https://pancakeswap.finance/images/tokens/0x4200000000000000000000000000000000000006.png"
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png"
     }
   ]
 }

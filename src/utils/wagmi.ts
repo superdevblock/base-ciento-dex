@@ -12,13 +12,13 @@ import { SafeConnector } from 'wagmi/connectors/safe'
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 
 const CHAINS = [
-  bsc,
+  // bsc,
   // bscTest,
 
   // TODO: ETH
   // mainnet,
   // goerli,
-  baseTest
+  baseTest,
 ]
 
 const PUBLIC_NODES = {
@@ -46,7 +46,7 @@ export const injectedConnector = new InjectedConnector({
 export const coinbaseConnector = new CoinbaseWalletConnector({
   chains,
   options: {
-    appName: 'PancakeSwap',
+    appName: 'Ciento',
     appLogoUrl: 'https://pancakeswap.com/logo.png',
   },
 })
