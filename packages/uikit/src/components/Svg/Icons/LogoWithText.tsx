@@ -22,7 +22,7 @@ const Logo: React.FC<React.PropsWithChildren<LogoProps>> = ({ isDark, ...props }
     </svg>
   );
 
-  fill = { textColor };
+  // fill = { textColor };
 };
 
 export default React.memo(Logo, (prev, next) => prev.isDark === next.isDark);

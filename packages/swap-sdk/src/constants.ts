@@ -123,6 +123,41 @@ export const WBNB = {
   ),
 }
 
+export const BASE = {
+  [ChainId.ETHEREUM]: new Token(
+    ChainId.ETHEREUM,
+    '0x4200000000000000000000000000000000000006',
+    18,
+    'WETH',
+    'Wrapped ETH',
+    'https://www.binance.org'
+  ),
+  [ChainId.BSC]: new Token(
+    ChainId.BSC,
+    '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
+    18,
+    'WBNB',
+    'Wrapped BNB',
+    'https://www.binance.org'
+  ),
+  [ChainId.BSC_TESTNET]: new Token(
+    ChainId.BSC_TESTNET,
+    '0x0dE8FCAE8421fc79B29adE9ffF97854a424Cad09',
+    18,
+    'WBNB',
+    'Wrapped BNB',
+    'https://www.binance.org'
+  ),
+  [ChainId.BASE_TESTNET]: new Token(
+    ChainId.BASE_TESTNET,
+    '0x4200000000000000000000000000000000000006',
+    18,
+    'WETH',
+    'Wrapped ETH',
+    'https://www.base.org'
+  ),
+}
+
 export const WNATIVE: Record<number, Token> = {
   [ChainId.ETHEREUM]: WETH9[ChainId.ETHEREUM],
   [ChainId.GOERLI]: WETH9[ChainId.GOERLI],

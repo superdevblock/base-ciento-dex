@@ -51,9 +51,10 @@ const InputPanel = styled.div`
   display: flex;
   flex-flow: column nowrap;
   position: relative;
-  background-color: ${({ theme }) => theme.colors.backgroundAlt};
+  // background-color: ${({ theme }) => theme.colors.backgroundAlt};
   z-index: 1;
-  border-radius: 10px;
+  border-radius: 20px;
+  border: 1.586px solid rgba(0, 0, 0, 0.10);
 `
 const Container = styled.div<{ zapStyle?: ZapStyle; error?: boolean }>`
   border-radius: 10px;

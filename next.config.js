@@ -32,6 +32,7 @@ const config = {
   compiler: {
     styledComponents: true,
   },
+  output: 'export',
   experimental: {
     scrollRestoration: true,
     images: {
@@ -41,7 +42,10 @@ const config = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['static-nft.pancakeswap.com'],
+    loader: 'imgix',
+    path: 'https://pancakeswap.finance/',
+    // unoptimized: true,
+    // domains: ['static-nft.pancakeswap.com'],
   },
   async rewrites() {
     return [

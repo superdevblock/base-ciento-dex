@@ -5,6 +5,7 @@ import isTouchDevice from "../../util/isTouchDevice";
 import DropdownMenu from "../DropdownMenu/DropdownMenu";
 import MenuItem from "../MenuItem/MenuItem";
 import { MenuItemsProps } from "./types";
+import AnimatedIconComponent from "../Svg/AnimatedIconComponent";
 
 const MenuItems: React.FC<React.PropsWithChildren<MenuItemsProps>> = ({
   items = [],
@@ -28,7 +29,8 @@ const MenuItems: React.FC<React.PropsWithChildren<MenuItemsProps>> = ({
             isDisabled={disabled}
           >
             <MenuItem {...linkProps} isActive={isActive} statusColor={statusColor} isDisabled={disabled}>
-              {label || (icon && createElement(Icon as any, { color: isActive ? "secondary" : "textSubtle" }))}
+              {(icon && createElement(Icon as any, { color: isActive ? "secondary" : "textSubtle" }))}
+              {label}
             </MenuItem>
           </DropdownMenu>
         );

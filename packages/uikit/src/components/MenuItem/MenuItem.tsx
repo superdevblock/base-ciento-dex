@@ -7,8 +7,8 @@ import { useMatchBreakpoints } from "../../contexts";
 const MenuItem: React.FC<React.PropsWithChildren<MenuItemProps>> = ({
   children,
   href,
-  icon = { icon },
-  fillIcon = { fillIcon },
+  // icon = { icon },
+  // fillIcon = { fillIcon },
   isActive = false,
   isDisabled = false,
   variant = "default",
@@ -47,8 +47,8 @@ const MenuItem: React.FC<React.PropsWithChildren<MenuItemProps>> = ({
         $isDisabled={isDisabled}
         $variant={variant}
         $statusColor={statusColor}
-        icon={icon}
-        fillIcon={fillIcon}
+        // icon={icon}
+        // fillIcon={fillIcon}
         {...props}
       >
         {children}

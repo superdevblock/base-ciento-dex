@@ -23,8 +23,9 @@ const StyledMenuItem = styled.a<StyledMenuItemProps>`
   position: relative;
   display: flex;
   align-items: center;
+  gap:30px;
 
-  color: ${({ theme, $isActive }) => ($isActive ? "#0066FF" : "")};
+  color: ${({ theme, $isActive }) => ($isActive ? "#0066FF" : "#858585")};
   background: ${({ theme, $isActive }) => ($isActive ? "rgba(0, 102, 255, 0.20)" : "")};
   font-size: 16px;
   font-weight: ${({ $isActive }) => ($isActive ? "600" : "400")};

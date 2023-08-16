@@ -14,6 +14,7 @@ import { MENU_HEIGHT, MOBILE_MENU_HEIGHT, TOP_BANNER_HEIGHT, TOP_BANNER_HEIGHT_M
 import { NavProps } from "./types";
 import LangSelector from "../../components/LangSelector/LangSelector";
 import { MenuContext } from "./context";
+import { isMobile } from "react-device-detect";
 
 const Wrapper = styled.div`
   position: relative;
@@ -22,12 +23,13 @@ const Wrapper = styled.div`
 
 const StyledNav = styled.nav`
   display: flex;
+  // flex-direction: $!isMobile? row-reverse: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   height: ${MENU_HEIGHT}px;
-  background-color: ${({ theme }) => theme.nav.background};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
+  // background-color: ${({ theme }) => theme.nav.background};
+  border-bottom: 1px solid rgba(172, 176, 192, 0.3);
   transform: translate3d(0, 0, 0);
 
   padding-left: 16px;
@@ -61,6 +63,7 @@ const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   transition: margin-top 0.2s, margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translate3d(0, 0, 0);
   max-width: 100%;
+  margin-bottom: 100px;
 `;
 
 const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
@@ -168,9 +171,31 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
           </Flex>
         )}
         <BodyWrapper mt={!subLinks ? `${totalTopMenuHeight + 1}px` : "0"}>
-          <Flex flexDirection={"column"} style={{ borderRight: "2px solid  #ACB0C0" }}>
-            {!isMobile && <MenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} />}
+          <Flex
+            flexDirection="column"
+            style={{
+              width: isMobile ? "0px" : isMd ? "170px" : "266px",
+              borderRight: "2px solid  rgba(172, 176, 192, 0.30)",
+              marginTop: `-${MENU_HEIGHT + 16}px`,
+              zIndex: 999,
+              padding: "49px 0px",
+              gap: "50px",
+              background: isDark ? "#000" : "#F9FAFE",
+            }}
+          >
+            {!isMobile && (
+              <Flex style={{ marginLeft: "49px" }}>
+                <Logo isDark={isDark} href={homeLink?.href ?? "/"} />
+              </Flex>
+            )}
+            {!isMobile && (
+              <Flex flexDirection="column">
+                <Flex style={{ color: "rgba(180, 185, 199, 1)", marginLeft: "50px" }}>MENU</Flex>
+                <MenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} />
+              </Flex>
+            )}
           </Flex>
+
           <Inner isPushed={false} showMenu={showMenu}>
             {children}
             {/* <Footer

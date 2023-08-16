@@ -23,7 +23,7 @@ const ExpertModal: React.FC<React.PropsWithChildren<ExpertModalProps>> = ({
       onBack={() => setShowConfirmExpertModal(false)}
       onDismiss={() => setShowConfirmExpertModal(false)}
       headerBackground="gradientCardHeader"
-      style={{ maxWidth: '360px' }}
+      style={{ maxWidth: '400px' }}
     >
       <Message variant="warning" mb="24px">
         <Text>
