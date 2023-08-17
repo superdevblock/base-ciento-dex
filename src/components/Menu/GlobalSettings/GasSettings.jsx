@@ -12,6 +12,7 @@ const GasSettings = () => {
   const [gasPrice, setGasPrice] = useGasPriceManager()
 
   return (
+    // eslint-disable-next-line react/jsx-filename-extension
     <Flex flexDirection="column">
       {chainId === ChainId.BSC && (
         <Flex mb="12px" alignItems="center">
