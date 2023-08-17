@@ -14,7 +14,6 @@ import { toV2LiquidityToken, useTrackedTokenPairs } from '../../state/user/hooks
 import { useTokenBalancesWithLoadingIndicator } from '../../state/wallet/hooks'
 import Page from '../Page'
 
-
 const Body = styled(CardBody)`
   background-color: ${({ theme }) => theme.colors.dropdownDeep};
 `
@@ -225,7 +224,7 @@ export default function Pool() {
             </Flex>
           )}
         </Body>
-        <Flex
+        {/* <Flex
           style={{
             margin: '20px',
             alignItems: 'center',
@@ -233,7 +232,7 @@ export default function Pool() {
         >
           <img src="./images/shield.png" style={{ marginRight: '15px' }} />
           Secured by Synergy Node
-        </Flex>
+        </Flex> */}
         <CardFooter style={{ textAlign: 'center' }}>
           <Link href="/add" passHref>
             <Button id="join-pool-button" width="100%" startIcon={<AddIcon color="white" />}>

@@ -12,16 +12,17 @@ import { SafeConnector } from 'wagmi/connectors/safe'
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 
 const CHAINS = [
-  // bsc,
+  baseTest,
+  bsc,
   // bscTest,
 
   // TODO: ETH
   // mainnet,
   // goerli,
-  baseTest,
 ]
 
 const PUBLIC_NODES = {
+  [ChainId.BASE_TESTNET]: 'https://base-goerli.public.blastapi.io',
   [ChainId.BSC]: 'https://bsc-dataseed1.binance.org',
   [ChainId.BSC_TESTNET]: 'https://data-seed-prebsc-1-s1.binance.org:8545',
   [ChainId.GOERLI]: 'https://eth-goerli.public.blastapi.io',
@@ -56,8 +57,8 @@ export const walletConnectConnector = new WalletConnectConnector({
   options: {
     projectId: 'a8484965e51b13ed38231ce86f3ed69c',
     metadata: {
-      name: 'SwapV2',
-      description: 'This is Swap V2 fork from pancake',
+      name: 'Ciento',
+      description: 'This is Ciento fork from pancake',
       url: 'https://nhancv.com',
       icons: ['https://i0.wp.com/nhancv.com/wp-content/uploads/2020/10/cropped-17565440.png'],
     },

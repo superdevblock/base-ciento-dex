@@ -9,7 +9,7 @@ export enum ChainId {
   GOERLI = 5,
   BSC = 56,
   BSC_TESTNET = 97,
-  BASE_TESTNET = 84531
+  BASE_TESTNET = 84531,
 }
 
 export enum TradeType {
@@ -23,25 +23,26 @@ export enum Rounding {
   ROUND_UP,
 }
 
-export const DEFAULT_FACTORY_ADDRESS = '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73'
-
+// export const DEFAULT_FACTORY_ADDRESS = '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73'
+export const DEFAULT_FACTORY_ADDRESS = '0x11D7F14B563b8b70C83DCA11E65e564a299b166c'
 // // TODO: ETH This is test version, do not depends on it
 const FACTORY_ADDRESS_ETH = '0xD93801d7D3a368D94A3A32E97A20f7aC1948a5dB'
 export const FACTORY_ADDRESS_MAP: Record<number, string> = {
   [ChainId.ETHEREUM]: FACTORY_ADDRESS_ETH,
   [ChainId.GOERLI]: FACTORY_ADDRESS_ETH,
-  [ChainId.BSC]: DEFAULT_FACTORY_ADDRESS,
+  [ChainId.BSC]: '0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73',
   [ChainId.BSC_TESTNET]: '0x5Fe5cC0122403f06abE2A75DBba1860Edb762985',
-  [ChainId.BASE_TESTNET]: '0x11D7F14B563b8b70C83DCA11E65e564a299b166c'
+  [ChainId.BASE_TESTNET]: '0x11D7F14B563b8b70C83DCA11E65e564a299b166c',
 }
 
-const INIT_CODE_HASH_ETH = '0x57224589c67f3f30a6b0d7a1b54cf3153ab84563bc609ef41dfb34f8b2974d2d'
+// const INIT_CODE_HASH_ETH = '0x57224589c67f3f30a6b0d7a1b54cf3153ab84563bc609ef41dfb34f8b2974d2d'
+const INIT_CODE_HASH_ETH = '0xa8c1d32f8b6354cfaa0cceda9fcb300d4c0c583a421876e05faec85656bd9fee'
 export const INIT_CODE_HASH_MAP: Record<number, string> = {
-  [ChainId.ETHEREUM]: INIT_CODE_HASH_ETH,
-  [ChainId.GOERLI]: INIT_CODE_HASH_ETH,
+  [ChainId.ETHEREUM]: '0x57224589c67f3f30a6b0d7a1b54cf3153ab84563bc609ef41dfb34f8b2974d2d',
+  [ChainId.GOERLI]: '0x57224589c67f3f30a6b0d7a1b54cf3153ab84563bc609ef41dfb34f8b2974d2d',
   [ChainId.BSC]: '0x00fb7f630766e6a796048ea87d01acd3068e8ff67d078148a3fa3f4a84f69bd5',
   [ChainId.BSC_TESTNET]: '0xbb600ba95884f2c2837114fd2f157d00137e0b65b0fe5226523d720e4a4ce539',
-  [ChainId.BASE_TESTNET]: '0xa8c1d32f8b6354cfaa0cceda9fcb300d4c0c583a421876e05faec85656bd9fee'
+  [ChainId.BASE_TESTNET]: '0xa8c1d32f8b6354cfaa0cceda9fcb300d4c0c583a421876e05faec85656bd9fee',
 }
 
 export const MINIMUM_LIQUIDITY = JSBI.BigInt(1000)
@@ -131,7 +132,7 @@ export const BASE = {
     'WETH',
     'Wrapped ETH',
     'https://www.binance.org'
-  )
+  ),
 }
 
 export const WNATIVE: Record<number, Token> = {
@@ -154,5 +155,5 @@ export const NATIVE: Record<
   [ChainId.GOERLI]: { name: 'Goerli Ether', symbol: 'GOR', decimals: 18 },
   [ChainId.BSC]: { name: 'Binance Chain Native Token', symbol: 'BNB', decimals: 18 },
   [ChainId.BSC_TESTNET]: { name: 'Binance Chain Native Token', symbol: 'tBNB', decimals: 18 },
-  [ChainId.BASE_TESTNET]: { name: 'Base Chain Native Token', symbol: 'ETH', decimals: 18 }
+  [ChainId.BASE_TESTNET]: { name: 'Base Chain Native Token', symbol: 'ETH', decimals: 18 },
 }

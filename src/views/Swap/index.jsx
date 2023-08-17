@@ -70,7 +70,6 @@ import {
   useExchangeChartManager,
 } from '../../state/user/hooks'
 
-
 import CircleLoader from '../../components/Loader/CircleLoader'
 import Page from '../Page'
 import SwapWarningModal from './components/SwapWarningModal'
@@ -90,6 +89,10 @@ const Label = styled(Text)`
 
 const SwitchIconButton = styled(IconButton)`
   box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: #ffffff;
+
+  color: ${({ theme }) => theme.colors.primary};
   .icon-up-down {
     display: none;
   }
@@ -106,8 +109,8 @@ const SwitchIconButton = styled(IconButton)`
   }
 `
 
-const CHART_SUPPORT_CHAIN_IDS = [ChainId.BSC]
-export const ACCESS_TOKEN_SUPPORT_CHAIN_IDS = [ChainId.BSC]
+const CHART_SUPPORT_CHAIN_IDS = [ChainId.BASE_TESTNET]
+export const ACCESS_TOKEN_SUPPORT_CHAIN_IDS = [ChainId.BASE_TESTNET]
 
 const SettingsModalWithCustomDismiss = withCustomOnDismiss(SettingsModal)
 
@@ -607,7 +610,7 @@ export default function Swap() {
                       <AutoRow justify={isExpertMode ? 'space-between' : 'center'} style={{ padding: '0 1rem' }}>
                         <SwitchIconButton
                           variant="light"
-                          scale="sm"
+                          scale="md"
                           onClick={() => {
                             setApprovalSubmitted(false) // reset 2 step UI for approvals
                             onSwitchTokens()
@@ -617,7 +620,7 @@ export default function Swap() {
                         >
                           <ArrowDownIcon
                             className="icon-down"
-                            color={currencies[Field.INPUT] && currencies[Field.OUTPUT] ? 'primary' : 'text'}
+                            color={currencies[Field.INPUT] && currencies[Field.OUTPUT] ? 'primary' : 'primary'}
                           />
                           <ArrowUpDownIcon
                             className="icon-up-down"

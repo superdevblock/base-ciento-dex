@@ -31,7 +31,7 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowNativeBalance, onDismiss 
     logout()
   }
 
-  const isBSC = native.chainId === ChainId.BSC
+  const isBSC = native.chainId === ChainId.BASE_TESTNET
 
   return (
     <>
@@ -66,16 +66,16 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowNativeBalance, onDismiss 
       </Flex>
       <Flex alignItems="center" justifyContent="space-between" mb="24px" mt="12px">
         <Flex alignItems="center">
-          {!isBSC && <ChainLogo chainId={56} />}
-          <Text ml={isBSC ? 0 : '8px'} color="textSubtle">
+          {!isBSC && <ChainLogo chainId={84531} />}
+          {/* <Text ml={isBSC ? 0 : '8px'} color="textSubtle">
             {t('CAKE Balance')}
-          </Text>
+          </Text> */}
         </Flex>
-        {cakeFetchStatus !== FetchStatus.Fetched ? (
+        {/* {cakeFetchStatus !== FetchStatus.Fetched ? (
           <Skeleton height="22px" width="60px" />
         ) : (
           <Text>{formatBigNumber(cakeBalance, 3)}</Text>
-        )}
+        )} */}
       </Flex>
       <Flex alignItems="center" justifyContent="end" mb="24px">
         <LinkExternal href={getBlockExploreLink(account, 'address', chainId)}>

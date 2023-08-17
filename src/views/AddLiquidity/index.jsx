@@ -34,6 +34,7 @@ import { transactionErrorToUserReadableMessage } from 'utils/transactionErrorToU
 import { useLPApr } from 'state/swap/hooks'
 import { ROUTER_ADDRESS } from 'config/constants/exchange'
 import { CAKE, USDC } from '@pancakeswap/tokens'
+import styled from 'styled-components'
 import { LightCard } from '../../components/Card'
 import { AutoColumn, ColumnCenter } from '../../components/Layout/Column'
 import CurrencyInputPanel from '../../components/CurrencyInputPanel'
@@ -72,6 +73,14 @@ import { formatAmount } from '../../utils/formatInfoNumbers'
 import { useCurrencySelectRoute } from './useCurrencySelectRoute'
 import { useAppDispatch } from '../../state'
 import { CommonBasesType } from '../../components/SearchModal/types'
+
+const AddButton = styled.div`
+  background-color: #ffffff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  padding: 16px;
+`
 
 const Steps = {
   Choose: 0,
@@ -163,15 +172,12 @@ export default function AddLiquidity() {
   const [allowedSlippage] = useUserSlippageTolerance() // custom from users
 
   // get the max amounts user can add
-  const maxAmounts = [Field.CURRENCY_A, Field.CURRENCY_B].reduce(
-    (accumulator, field) => {
-      return {
-        ...accumulator,
-        [field]: maxAmountSpend(currencyBalances[field]),
-      }
-    },
-    {},
-  )
+  const maxAmounts = [Field.CURRENCY_A, Field.CURRENCY_B].reduce((accumulator, field) => {
+    return {
+      ...accumulator,
+      [field]: maxAmountSpend(currencyBalances[field]),
+    }
+  }, {})
 
   const canZap = useMemo(
     () =>
@@ -226,15 +232,12 @@ export default function AddLiquidity() {
     ],
   )
 
-  const atMaxAmounts = [Field.CURRENCY_A, Field.CURRENCY_B].reduce(
-    (accumulator, field) => {
-      return {
-        ...accumulator,
-        [field]: maxAmounts[field]?.equalTo(parsedAmounts[field] ?? '0'),
-      }
-    },
-    {},
-  )
+  const atMaxAmounts = [Field.CURRENCY_A, Field.CURRENCY_B].reduce((accumulator, field) => {
+    return {
+      ...accumulator,
+      [field]: maxAmounts[field]?.equalTo(parsedAmounts[field] ?? '0'),
+    }
+  }, {})
 
   // check whether the user has approved the router on the tokens
   const [approvalA, approveACallback] = useApproveCallback(
@@ -660,7 +663,7 @@ export default function AddLiquidity() {
               style={{ border: 'none', marginTop: '26px', background: 'transparent', textDecoration: 'none' }}
             >
               <a
-                href='/swap'
+                href="/swap"
                 style={{
                   background: '',
                   color: 'white',
@@ -774,7 +777,9 @@ export default function AddLiquidity() {
                   commonBasesType={CommonBasesType.LIQUIDITY}
                 />
                 <ColumnCenter>
-                  <AddIcon width="16px" />
+                  <AddButton>
+                    <AddIcon width="16px" color="#06F" />
+                  </AddButton>
                 </ColumnCenter>
                 <CurrencyInputPanel
                   showBUSD
