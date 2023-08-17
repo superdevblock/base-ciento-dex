@@ -79,7 +79,7 @@ const AddButton = styled.div`
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  padding: 16px;
+  padding: 12px;
 `
 
 const Steps = {
@@ -778,7 +778,7 @@ export default function AddLiquidity() {
                 />
                 <ColumnCenter>
                   <AddButton>
-                    <AddIcon width="16px" color="#06F" />
+                    <AddIcon width="24px" color="#06F" />
                   </AddButton>
                 </ColumnCenter>
                 <CurrencyInputPanel

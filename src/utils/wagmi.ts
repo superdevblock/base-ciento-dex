@@ -13,7 +13,7 @@ import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 
 const CHAINS = [
   baseTest,
-  bsc,
+  // bsc,
   // bscTest,
 
   // TODO: ETH
