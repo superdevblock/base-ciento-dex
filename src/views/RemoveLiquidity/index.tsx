@@ -421,42 +421,27 @@ export default function RemoveLiquidity() {
 
     let methodSafeGasEstimate: { methodName: string; safeGasEstimate: BigNumber }
 
-    console.log('arsinoe 0')
     for (let i = 0; i < methodNames.length; i++) {
       let safeGasEstimate
       try {
-        console.log('arsinoe ', methodNames[i])
-        console.log('arsinoe 01')
-        console.log('arsinoe 1')
-        console.log('arsinoe 1, arg', ...args)
         // eslint-disable-next-line no-await-in-loop
         safeGasEstimate = calculateGasMargin(await routerContract.estimateGas[methodNames[i]](...args))
-        console.log('arsinoe 11')
-        console.log(safeGasEstimate)
       } catch (e) {
-        console.log('arsinoe 2')
         console.error(`estimateGas failed`, methodNames[i], args, e)
       }
-      console.log('arsinoe 20', safeGasEstimate)
-      console.log('arsinoe 21')
       if (BigNumber.isBigNumber(safeGasEstimate)) {
         methodSafeGasEstimate = { methodName: methodNames[i], safeGasEstimate }
-        console.log('arsinoe 22 ', methodSafeGasEstimate)
         break
       }
     }
 
-    console.log('arsinoe 23 ', methodSafeGasEstimate)
     // all estimations failed...
     if (!methodSafeGasEstimate) {
       toastError(t('Error'), t('This transaction would fail'))
-      console.log('arsinoe 3')
     } else {
-      console.log('arsinoe 4')
       const { methodName, safeGasEstimate } = methodSafeGasEstimate
 
       setLiquidityState({ attemptingTxn: true, liquidityErrorMessage: undefined, txHash: undefined })
-      console.log('arsinoe 5')
       await routerContract[methodName](...args, {
         gasLimit: safeGasEstimate,
         gasPrice,
@@ -465,7 +450,6 @@ export default function RemoveLiquidity() {
           setLiquidityState({ attemptingTxn: false, liquidityErrorMessage: undefined, txHash: response.hash })
           const amountA = parsedAmounts[Field.CURRENCY_A]?.toSignificant(3)
           const amountB = parsedAmounts[Field.CURRENCY_B]?.toSignificant(3)
-          console.log('arsinoe 51')
           addTransaction(response, {
             summary: `Remove ${amountA} ${currencyA?.symbol} and ${amountB} ${currencyB?.symbol}`,
             translatableSummary: {
@@ -474,16 +458,12 @@ export default function RemoveLiquidity() {
             },
             type: 'remove-liquidity',
           })
-          console.log('arsinoe 52')
         })
         .catch((err) => {
-          console.log('arsinoe 53')
           if (err && err.code !== 4001) {
-            console.log('arsinoe 54')
             logError(err)
             console.error(`Remove Liquidity failed`, err, args)
           }
-          console.log('arsinoe 55')
           setLiquidityState({
             attemptingTxn: false,
             liquidityErrorMessage:
@@ -492,7 +472,6 @@ export default function RemoveLiquidity() {
                 : undefined,
             txHash: undefined,
           })
-          console.log('arsinoe 56')
         })
     }
   }

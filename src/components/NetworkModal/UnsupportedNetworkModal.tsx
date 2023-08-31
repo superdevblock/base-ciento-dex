@@ -30,7 +30,10 @@ export function UnsupportedNetworkModal() {
     return activeSubMenuItem?.label || activeMenuItem?.label
   }, [menuItems, pathname])
 
-  const supportedMainnetChains = useMemo(() => chains.filter((chain) => !chain.testnet), [chains])
+  // const supportedMainnetChains = useMemo(() => chains.filter((chain) => !chain.testnet), [chains])
+
+  // arsinoe
+  const supportedMainnetChains = useMemo(() => chains, [chains])
 
   return (
     <Modal title={t('Check your network')} hideCloseButton headerBackground="gradientModalHeader">
@@ -40,13 +43,13 @@ export function UnsupportedNetworkModal() {
           {supportedMainnetChains?.map((c) => c.name).join(', ')}
         </Text>
         <div style={{ textAlign: 'center' }}>
-          <Image
+          {/* <Image
             layout="fixed"
             width="194px"
             height="175px"
             src="/images/check-your-network.png"
             alt="check your network"
-          />
+          /> */}
         </div>
         <Message variant="warning">
           <MessageText>{t('Please switch your network to continue.')}</MessageText>

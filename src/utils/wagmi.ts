@@ -12,13 +12,13 @@ import { SafeConnector } from 'wagmi/connectors/safe'
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc'
 
 const CHAINS = [
-  baseTest,
+  // goerli,
   // bsc,
+  baseTest,
   // bscTest,
 
   // TODO: ETH
   // mainnet,
-  // goerli,
 ]
 
 const PUBLIC_NODES = {
